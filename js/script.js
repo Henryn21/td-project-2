@@ -38,24 +38,32 @@ function appendPageLinks(){
       let buttonLink=document.createElement('a');
       let button=document.createElement('li');
       buttonLink.innerHTML=i;//set text to page number "i"
+      //TEST SOLUTION FOR "active"
+      buttonLink.className="bl"
       //add event listner
       buttonLink.addEventListener("click", () =>{
-         //FIX THIS
-         // for(let j=0;j<links;j++){
-         //    buttonList[i].firstChild.firstChild.className="";
-         // }
+         clearActive(),
          buttonLink.className="active",
-         showPage(studentsList, i)});  
+         showPage(studentsList, i)
+      });  
       //add to DOM
       button.appendChild(buttonLink);
       buttonList.appendChild(button);
       
    }
    //set first page to active
-   //buttonList button buttonLink
+   //buttonList button buttonLink//doesnt work
    buttonList.firstChild.firstChild="active";
 
 }
+//array for storing all links
+let linkArray= document.querySelectorAll(".bl");
+function clearActive(){
+   for(let i=0;i<linkArray.length;i++){
+      linkArray[i].classList.remove("active");     
+   }
+}
+
 appendPageLinks();
 //shows first page
 showPage(studentsList, 1);
