@@ -39,11 +39,23 @@ function appendPageLinks(){
       let button=document.createElement('li');
       buttonLink.innerHTML=i;//set text to page number "i"
       //add event listner
-      buttonLink.addEventListener("click", () =>{showPage(studentsList, i)});
+      buttonLink.addEventListener("click", () =>{
+         //FIX THIS
+         // for(let j=0;j<links;j++){
+         //    buttonList[i].firstChild.firstChild.className="";
+         // }
+         buttonLink.className="active",
+         showPage(studentsList, i)});  
       //add to DOM
       button.appendChild(buttonLink);
       buttonList.appendChild(button);
+      
    }
+   //set first page to active
+   //buttonList button buttonLink
+   buttonList.firstChild.firstChild="active";
 
 }
 appendPageLinks();
+//shows first page
+showPage(studentsList, 1);
