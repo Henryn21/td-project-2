@@ -37,12 +37,11 @@ function appendPageLinks(){
    for(let i=1;i<links;i++){//for each link, add a button with the number
       let buttonLink=document.createElement('a');
       let button=document.createElement('li');
+      button.className="item";
       buttonLink.innerHTML=i;//set text to page number "i"
-      //TEST SOLUTION FOR "active"
-      buttonLink.className="bl"
       //add event listner
-      buttonLink.addEventListener("click", () =>{//eventlistener on <a> //e = a?
-         clearActive(buttonLink);
+      buttonLink.addEventListener("click", () =>{//eventlistener on <a> 
+         clearActive();
          buttonLink.className="active";
          showPage(studentsList, i);
       });  
@@ -56,16 +55,13 @@ function appendPageLinks(){
    buttonList.firstChild.firstChild.className="active";
 
 }
-//array for storing all links
-let linkArray= document.querySelectorAll();
-console.log(linkArray);
+
 //a is the a element clicked
-function clearActive(a){
-   a.parentNode
-   //failed solution
-   // for(let i=0;i<linkArray.length;i++){
-   //    linkArray[i].classList.remove("active");     
-   // }
+function clearActive(){
+   let aList=document.querySelectorAll(".item");
+   for(let i=0;i<aList.length;i++){
+      aList[i].firstChild.className="";   
+   }
 }
 
 appendPageLinks();
