@@ -41,10 +41,10 @@ function appendPageLinks(){
       //TEST SOLUTION FOR "active"
       buttonLink.className="bl"
       //add event listner
-      buttonLink.addEventListener("click", () =>{
-         clearActive(),
-         buttonLink.className="active",
-         showPage(studentsList, i)
+      buttonLink.addEventListener("click", () =>{//eventlistener on <a> //e = a?
+         clearActive(buttonLink);
+         buttonLink.className="active";
+         showPage(studentsList, i);
       });  
       //add to DOM
       button.appendChild(buttonLink);
@@ -53,15 +53,19 @@ function appendPageLinks(){
    }
    //set first page to active
    //buttonList button buttonLink//doesnt work
-   buttonList.firstChild.firstChild="active";
+   buttonList.firstChild.firstChild.className="active";
 
 }
 //array for storing all links
-let linkArray= document.querySelectorAll(".bl");
-function clearActive(){
-   for(let i=0;i<linkArray.length;i++){
-      linkArray[i].classList.remove("active");     
-   }
+let linkArray= document.querySelectorAll();
+console.log(linkArray);
+//a is the a element clicked
+function clearActive(a){
+   a.parentNode
+   //failed solution
+   // for(let i=0;i<linkArray.length;i++){
+   //    linkArray[i].classList.remove("active");     
+   // }
 }
 
 appendPageLinks();
